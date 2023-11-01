@@ -1,0 +1,66 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="practice">
+      <h2 data-cy="practiceDetailsHeading">
+        <span jhiTranslate="frontendApp.practice.detail.title">__jhiTransformTranslate__('frontendApp.practice.detail.title')</span>
+      </h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">__jhiTransformTranslate__('global.field.id')</span></dt>
+        <dd>
+          <span>{{ practice.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="frontendApp.practice.companyName">__jhiTransformTranslate__('frontendApp.practice.companyName')</span></dt>
+        <dd>
+          <span>{{ practice.companyName }}</span>
+        </dd>
+        <dt><span jhiTranslate="frontendApp.practice.studentName">__jhiTransformTranslate__('frontendApp.practice.studentName')</span></dt>
+        <dd>
+          <span>{{ practice.studentName }}</span>
+        </dd>
+        <dt><span jhiTranslate="frontendApp.practice.startDate">__jhiTransformTranslate__('frontendApp.practice.startDate')</span></dt>
+        <dd>
+          <span>{{ practice.startDate | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="frontendApp.practice.endDate">__jhiTransformTranslate__('frontendApp.practice.endDate')</span></dt>
+        <dd>
+          <span>{{ practice.endDate | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="frontendApp.practice.tasks">__jhiTransformTranslate__('frontendApp.practice.tasks')</span></dt>
+        <dd>
+          <span>{{ practice.tasks }}</span>
+        </dd>
+        <dt><span jhiTranslate="frontendApp.practice.student">__jhiTransformTranslate__('frontendApp.practice.student')</span></dt>
+        <dd>
+          <div *ngIf="practice.student">
+            <a [routerLink]="['/student', practice.student.id, 'view']">{{ practice.student.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="frontendApp.practice.company">__jhiTransformTranslate__('frontendApp.practice.company')</span></dt>
+        <dd>
+          <div *ngIf="practice.company">
+            <a [routerLink]="['/company', practice.company.id, 'view']">{{ practice.company.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"
+          >__jhiTransformTranslate__('entity.action.back')</span
+        >
+      </button>
+
+      <button type="button" [routerLink]="['/practice', practice.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"
+          >__jhiTransformTranslate__('entity.action.edit')</span
+        >
+      </button>
+    </div>
+  </div>
+</div>

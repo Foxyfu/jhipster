@@ -1,0 +1,42 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="company">
+      <h2 data-cy="companyDetailsHeading">
+        <span jhiTranslate="frontendApp.company.detail.title">__jhiTransformTranslate__('frontendApp.company.detail.title')</span>
+      </h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">__jhiTransformTranslate__('global.field.id')</span></dt>
+        <dd>
+          <span>{{ company.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="frontendApp.company.companyName">__jhiTransformTranslate__('frontendApp.company.companyName')</span></dt>
+        <dd>
+          <span>{{ company.companyName }}</span>
+        </dd>
+        <dt><span jhiTranslate="frontendApp.company.location">__jhiTransformTranslate__('frontendApp.company.location')</span></dt>
+        <dd>
+          <span>{{ company.location }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"
+          >__jhiTransformTranslate__('entity.action.back')</span
+        >
+      </button>
+
+      <button type="button" [routerLink]="['/company', company.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"
+          >__jhiTransformTranslate__('entity.action.edit')</span
+        >
+      </button>
+    </div>
+  </div>
+</div>

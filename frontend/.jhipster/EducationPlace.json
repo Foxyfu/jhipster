@@ -1,0 +1,19 @@
+{
+  "applications": "*",
+  "changelogDate": "20231101100126",
+  "entityTableName": "education_place",
+  "fields": [
+    {
+      "fieldName": "placeName",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "city",
+      "fieldType": "String"
+    }
+  ],
+  "name": "EducationPlace",
+  "relationships": [],
+  "service": "serviceImpl"
+}

@@ -1,0 +1,30 @@
+{
+  "frontendApp": {
+    "practice": {
+      "home": {
+        "title": "Practices",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Practice",
+        "createOrEditLabel": "Créer ou éditer un Practice",
+        "notFound": "Aucun Practice trouvé"
+      },
+      "created": "Un nouveau Practice a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Practice avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Practice avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Êtes-vous certain de vouloir supprimer le Practice {{ id }} ?"
+      },
+      "detail": {
+        "title": "Practice"
+      },
+      "id": "ID",
+      "companyName": "Company Name",
+      "studentName": "Student Name",
+      "startDate": "Start Date",
+      "endDate": "End Date",
+      "tasks": "Tasks",
+      "student": "Student",
+      "company": "Company"
+    }
+  }
+}

@@ -1,0 +1,133 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2 id="jhi-student-heading" data-cy="StudentCreateUpdateHeading" jhiTranslate="frontendApp.student.home.createOrEditLabel">
+        __jhiTransformTranslate__('frontendApp.student.home.createOrEditLabel')
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="mb-3" *ngIf="editForm.controls.id.value !== null">
+          <label class="form-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="frontendApp.student.firstName" for="field_firstName">First Name</label>
+          <input type="text" class="form-control" name="firstName" id="field_firstName" data-cy="firstName" formControlName="firstName" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="frontendApp.student.lastName" for="field_lastName">Last Name</label>
+          <input type="text" class="form-control" name="lastName" id="field_lastName" data-cy="lastName" formControlName="lastName" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="frontendApp.student.email" for="field_email">Email</label>
+          <input type="text" class="form-control" name="email" id="field_email" data-cy="email" formControlName="email" />
+          <div *ngIf="editForm.get('email')!.invalid && (editForm.get('email')!.dirty || editForm.get('email')!.touched)">
+            <small class="form-text text-danger" *ngIf="editForm.get('email')?.errors?.required" jhiTranslate="entity.validation.required"
+              >__jhiTransformTranslate__('entity.validation.required')</small
+            >
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="frontendApp.student.phoneNumber" for="field_phoneNumber">Phone Number</label>
+          <input
+            type="text"
+            class="form-control"
+            name="phoneNumber"
+            id="field_phoneNumber"
+            data-cy="phoneNumber"
+            formControlName="phoneNumber"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="frontendApp.student.studyStart" for="field_studyStart">Study Start</label>
+          <div class="d-flex">
+            <input
+              id="field_studyStart"
+              data-cy="studyStart"
+              type="datetime-local"
+              class="form-control"
+              name="studyStart"
+              formControlName="studyStart"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+          <div *ngIf="editForm.get('studyStart')!.invalid && (editForm.get('studyStart')!.dirty || editForm.get('studyStart')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('studyStart')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+              >__jhiTransformTranslate__('entity.validation.required')</small
+            >
+            <small
+              class="form-text text-danger"
+              [hidden]="!editForm.get('studyStart')?.errors?.datetimelocal"
+              jhiTranslate="entity.validation.datetimelocal"
+              >__jhiTransformTranslate__('entity.validation.datetimelocal')</small
+            >
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="frontendApp.student.studyEnd" for="field_studyEnd">Study End</label>
+          <div class="d-flex">
+            <input
+              id="field_studyEnd"
+              data-cy="studyEnd"
+              type="datetime-local"
+              class="form-control"
+              name="studyEnd"
+              formControlName="studyEnd"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="frontendApp.student.educationPlace" for="field_educationPlace"
+            >__jhiTransformTranslate__('frontendApp.student.educationPlace')</label
+          >
+          <select
+            class="form-control"
+            id="field_educationPlace"
+            data-cy="educationPlace"
+            name="educationPlace"
+            formControlName="educationPlace"
+            [compareWith]="compareEducationPlace"
+          >
+            <option [ngValue]="null"></option>
+            <option [ngValue]="educationPlaceOption" *ngFor="let educationPlaceOption of educationPlacesSharedCollection">
+              {{ educationPlaceOption.id }}
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel"
+            >__jhiTransformTranslate__('entity.action.cancel')</span
+          >
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save"
+            >__jhiTransformTranslate__('entity.action.save')</span
+          >
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

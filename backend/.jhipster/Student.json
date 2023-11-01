@@ -1,0 +1,45 @@
+{
+  "applications": "*",
+  "changelogDate": "20231101095725",
+  "entityTableName": "student",
+  "fields": [
+    {
+      "fieldName": "firstName",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "lastName",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "email",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "phoneNumber",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "studyStart",
+      "fieldType": "Instant",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "studyEnd",
+      "fieldType": "Instant"
+    }
+  ],
+  "name": "Student",
+  "pagination": "pagination",
+  "relationships": [
+    {
+      "otherEntityName": "educationPlace",
+      "relationshipName": "educationPlace",
+      "relationshipSide": "left",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "searchEngine": "no",
+  "service": "serviceImpl"
+}

@@ -1,0 +1,44 @@
+entity Company {
+  companyName String required
+  location String  
+}
+
+entity EducationPlace {
+  placeName String required
+  city String
+}
+
+entity Student {
+  firstName String
+  lastName String
+  email String required
+  phoneNumber String
+  studyStart Instant required
+  studyEnd Instant  
+}
+
+entity Practice {
+  companyName String required
+  studentName String 
+  startDate Instant required
+  endDate Instant
+  tasks String
+}
+
+relationship ManyToOne {
+  Student{educationPlace} to EducationPlace
+}
+
+relationship ManyToOne {
+  Practice{student} to Student
+} 
+
+relationship ManyToOne {
+  Practice{company} to Company
+}
+
+// Set pagination for entities
+paginate Student, Practice with pagination
+
+// Set serviceClass for all entities
+service all with serviceImpl

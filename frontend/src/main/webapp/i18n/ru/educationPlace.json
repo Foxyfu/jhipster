@@ -1,0 +1,25 @@
+{
+  "frontendApp": {
+    "educationPlace": {
+      "home": {
+        "title": "Education Places",
+        "refreshListLabel": "Обновить список",
+        "createLabel": "Создать новый Education Place",
+        "createOrEditLabel": "Создать или отредактировать Education Place",
+        "notFound": "Education Places не найдено"
+      },
+      "created": "Новый Education Place создан с идентификатором {{ param }}",
+      "updated": "Education Place обновлен с идентификатором {{ param }}",
+      "deleted": "Education Place удален с идентификатором {{ param }}",
+      "delete": {
+        "question": "Вы уверены что хотите удалить Education Place {{ id }}?"
+      },
+      "detail": {
+        "title": "Education Place"
+      },
+      "id": "ID",
+      "placeName": "Place Name",
+      "city": "City"
+    }
+  }
+}

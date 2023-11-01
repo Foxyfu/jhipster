@@ -1,0 +1,66 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="student">
+      <h2 data-cy="studentDetailsHeading">
+        <span jhiTranslate="frontendApp.student.detail.title">__jhiTransformTranslate__('frontendApp.student.detail.title')</span>
+      </h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">__jhiTransformTranslate__('global.field.id')</span></dt>
+        <dd>
+          <span>{{ student.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="frontendApp.student.firstName">__jhiTransformTranslate__('frontendApp.student.firstName')</span></dt>
+        <dd>
+          <span>{{ student.firstName }}</span>
+        </dd>
+        <dt><span jhiTranslate="frontendApp.student.lastName">__jhiTransformTranslate__('frontendApp.student.lastName')</span></dt>
+        <dd>
+          <span>{{ student.lastName }}</span>
+        </dd>
+        <dt><span jhiTranslate="frontendApp.student.email">__jhiTransformTranslate__('frontendApp.student.email')</span></dt>
+        <dd>
+          <span>{{ student.email }}</span>
+        </dd>
+        <dt><span jhiTranslate="frontendApp.student.phoneNumber">__jhiTransformTranslate__('frontendApp.student.phoneNumber')</span></dt>
+        <dd>
+          <span>{{ student.phoneNumber }}</span>
+        </dd>
+        <dt><span jhiTranslate="frontendApp.student.studyStart">__jhiTransformTranslate__('frontendApp.student.studyStart')</span></dt>
+        <dd>
+          <span>{{ student.studyStart | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="frontendApp.student.studyEnd">__jhiTransformTranslate__('frontendApp.student.studyEnd')</span></dt>
+        <dd>
+          <span>{{ student.studyEnd | formatMediumDatetime }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="frontendApp.student.educationPlace">__jhiTransformTranslate__('frontendApp.student.educationPlace')</span>
+        </dt>
+        <dd>
+          <div *ngIf="student.educationPlace">
+            <a [routerLink]="['/education-place', student.educationPlace.id, 'view']">{{ student.educationPlace.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"
+          >__jhiTransformTranslate__('entity.action.back')</span
+        >
+      </button>
+
+      <button type="button" [routerLink]="['/student', student.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"
+          >__jhiTransformTranslate__('entity.action.edit')</span
+        >
+      </button>
+    </div>
+  </div>
+</div>

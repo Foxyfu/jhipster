@@ -1,0 +1,30 @@
+{
+  "frontendApp": {
+    "practice": {
+      "home": {
+        "title": "Practices",
+        "refreshListLabel": "Обновить список",
+        "createLabel": "Создать новый Practice",
+        "createOrEditLabel": "Создать или отредактировать Practice",
+        "notFound": "Practices не найдено"
+      },
+      "created": "Новый Practice создан с идентификатором {{ param }}",
+      "updated": "Practice обновлен с идентификатором {{ param }}",
+      "deleted": "Practice удален с идентификатором {{ param }}",
+      "delete": {
+        "question": "Вы уверены что хотите удалить Practice {{ id }}?"
+      },
+      "detail": {
+        "title": "Practice"
+      },
+      "id": "ID",
+      "companyName": "Company Name",
+      "studentName": "Student Name",
+      "startDate": "Start Date",
+      "endDate": "End Date",
+      "tasks": "Tasks",
+      "student": "Student",
+      "company": "Company"
+    }
+  }
+}

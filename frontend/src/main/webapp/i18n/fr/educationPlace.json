@@ -1,0 +1,25 @@
+{
+  "frontendApp": {
+    "educationPlace": {
+      "home": {
+        "title": "EducationPlaces",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Education Place",
+        "createOrEditLabel": "Créer ou éditer un Education Place",
+        "notFound": "Aucun Education Place trouvé"
+      },
+      "created": "Un nouveau Education Place a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Education Place avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Education Place avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Êtes-vous certain de vouloir supprimer le Education Place {{ id }} ?"
+      },
+      "detail": {
+        "title": "Education Place"
+      },
+      "id": "ID",
+      "placeName": "Place Name",
+      "city": "City"
+    }
+  }
+}

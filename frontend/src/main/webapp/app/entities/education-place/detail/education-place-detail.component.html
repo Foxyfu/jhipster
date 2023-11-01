@@ -1,0 +1,46 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="educationPlace">
+      <h2 data-cy="educationPlaceDetailsHeading">
+        <span jhiTranslate="frontendApp.educationPlace.detail.title"
+          >__jhiTransformTranslate__('frontendApp.educationPlace.detail.title')</span
+        >
+      </h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">__jhiTransformTranslate__('global.field.id')</span></dt>
+        <dd>
+          <span>{{ educationPlace.id }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="frontendApp.educationPlace.placeName">__jhiTransformTranslate__('frontendApp.educationPlace.placeName')</span>
+        </dt>
+        <dd>
+          <span>{{ educationPlace.placeName }}</span>
+        </dd>
+        <dt><span jhiTranslate="frontendApp.educationPlace.city">__jhiTransformTranslate__('frontendApp.educationPlace.city')</span></dt>
+        <dd>
+          <span>{{ educationPlace.city }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"
+          >__jhiTransformTranslate__('entity.action.back')</span
+        >
+      </button>
+
+      <button type="button" [routerLink]="['/education-place', educationPlace.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"
+          >__jhiTransformTranslate__('entity.action.edit')</span
+        >
+      </button>
+    </div>
+  </div>
+</div>

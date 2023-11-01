@@ -1,0 +1,105 @@
+<div>
+  <h2 id="page-heading" data-cy="EducationPlaceHeading">
+    <span jhiTranslate="frontendApp.educationPlace.home.title">__jhiTransformTranslate__('frontendApp.educationPlace.home.title')</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="load()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="frontendApp.educationPlace.home.refreshListLabel"
+          >__jhiTransformTranslate__('frontendApp.educationPlace.home.refreshListLabel')</span
+        >
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-education-place"
+        [routerLink]="['/education-place/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="frontendApp.educationPlace.home.createLabel"
+          >__jhiTransformTranslate__('frontendApp.educationPlace.home.createLabel')</span
+        >
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="educationPlaces?.length === 0">
+    <span jhiTranslate="frontendApp.educationPlace.home.notFound"
+      >__jhiTransformTranslate__('frontendApp.educationPlace.home.notFound')</span
+    >
+  </div>
+
+  <div class="table-responsive table-entities" id="entities" *ngIf="educationPlaces && educationPlaces.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" (sortChange)="navigateToWithComponentValues()">
+          <th scope="col" jhiSortBy="id">
+            <div class="d-flex">
+              <span jhiTranslate="global.field.id">__jhiTransformTranslate__('global.field.id')</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="placeName">
+            <div class="d-flex">
+              <span jhiTranslate="frontendApp.educationPlace.placeName"
+                >__jhiTransformTranslate__('frontendApp.educationPlace.placeName')</span
+              >
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="city">
+            <div class="d-flex">
+              <span jhiTranslate="frontendApp.educationPlace.city">__jhiTransformTranslate__('frontendApp.educationPlace.city')</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let educationPlace of educationPlaces; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/education-place', educationPlace.id, 'view']">{{ educationPlace.id }}</a>
+          </td>
+          <td>{{ educationPlace.placeName }}</td>
+          <td>{{ educationPlace.city }}</td>
+          <td class="text-end">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/education-place', educationPlace.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">__jhiTransformTranslate__('entity.action.view')</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/education-place', educationPlace.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">__jhiTransformTranslate__('entity.action.edit')</span>
+              </button>
+
+              <button type="submit" (click)="delete(educationPlace)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete"
+                  >__jhiTransformTranslate__('entity.action.delete')</span
+                >
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

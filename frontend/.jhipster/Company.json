@@ -1,0 +1,19 @@
+{
+  "applications": "*",
+  "changelogDate": "20231101100026",
+  "entityTableName": "company",
+  "fields": [
+    {
+      "fieldName": "companyName",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "location",
+      "fieldType": "String"
+    }
+  ],
+  "name": "Company",
+  "relationships": [],
+  "service": "serviceImpl"
+}

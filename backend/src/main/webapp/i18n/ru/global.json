@@ -1,0 +1,12 @@
+{
+  "global": {
+    "menu": {
+      "entities": {
+        "company": "Company",
+        "educationPlace": "Education Place",
+        "student": "Student",
+        "practice": "Practice"
+      }
+    }
+  }
+}
