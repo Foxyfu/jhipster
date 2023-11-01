@@ -1,0 +1,53 @@
+version: '3'
+
+services:
+  backend:
+    container_name: backend_dev
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    ports:
+      - '8080:8080'
+    networks:
+      - test-network
+
+  frontend:
+    container_name: frontend_dev
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    depends_on:
+      - backend
+    ports:
+      - '9000:9000'
+    networks:
+      - test-network
+
+  db:
+    container_name: db
+    image: postgres:latest
+    environment:
+      - POSTGRES_DB=admin
+      - POSTGRES_PASSWORD=admin
+      - POSTGRES_USER=admin
+    ports:
+      - '5432:5432'
+    networks:
+      - test-network
+
+  nginx:
+    container_name: nginx_dev
+    build:
+      context: ./nginx
+      dockerfile: Dockerfile
+    image: nginx:latest
+    ports:
+      - '80:80'
+    depends_on:
+      - backend
+      - frontend
+    networks:
+      - test-network
+networks: # явно объявленные сети
+  test-network:
+    driver: bridge
